@@ -1,64 +1,78 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CCTB - Random Strong Password Generator using JavaScript</title>
-
-    <!-- CSS -->
+    <title>CCTB - Password Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
-
-    <title>Random Strong Password Generator using JavaScript</title>
 </head>
-
 <body>
-    <div class="container">
-        <img class="rounded" src="https://guscanada.com/wp-content/uploads/2021/09/CCTB_logo_1_RGB.png" width="100px">
-        <h2>SQAE113 - DevOps Infrastructure Level 1 - CCTB</h2>
-        <p><br>
-        <h3>Feb 2026</H3>
-        </p>
-    </div>
-    <div class="container">
-        <h2 class="title">Password Generator</h2>
-        <div class="result">
-            <div class="result__title field-title">Generated Password</div>
-            <div class="result__info right">click to copy</div>
-            <div class="result__info left">copied</div>
-            <div class="result__viewbox" id="result">CLICK GENERATE</div>
-            <button id="copy-btn" style="--x: 0; --y: 0"><i class="far fa-copy"></i></button>
-        </div>
-        <div class="length range__slider" data-min="4" data-max="32">
-            <div class="length__title field-title" data-length='0'>length:</div>
-            <input id="slider" type="range" min="4" max="32" value="16" />
-        </div>
+    <main class="app-wrapper">
+        <header class="branding-header">
+            <img src="https://guscanada.com/wp-content/uploads/2021/09/CCTB_logo_1_RGB.png" alt="CCTB Logo" width="120">
+            <h1>DevOps Infrastructure</h1>
+            <span class="badge">Feb 2026</span>
+        </header>
 
-        <div class="settings">
-            <span class="settings__title field-title">settings</span>
-            <div class="setting">
-                <input type="checkbox" id="uppercase" checked />
-                <label for="uppercase">Include Uppercase</label>
+        <section class="main-card">
+            <h2 class="card-title">Password Generator</h2>
+            
+            <div class="result-container">
+                <span class="label-upper">Senha Gerada</span>
+                <div class="result-display" id="result">CLIQUE EM GERAR</div>
+                <button id="copy-btn" title="Copiar senha">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                </button>
+                <div class="toast-notification right">Copiar</div>
+                <div class="toast-notification left">Copiado!</div>
             </div>
-            <div class="setting">
-                <input type="checkbox" id="lowercase" checked />
-                <label for="lowercase">Include Lowercase</label>
-            </div>
-            <div class="setting">
-                <input type="checkbox" id="number" checked />
-                <label for="number">Include Numbers</label>
-            </div>
-            <div class="setting">
-                <input type="checkbox" id="symbol" />
-                <label for="symbol">Include Symbols</label>
-            </div>
-        </div>
 
-        <button class="btn generate" id="generate">Generate Password</button>
-    </div>
+            <div class="config-section">
+                <div class="range-group">
+                    <div class="range-header">
+                        <span>Tamanho da Senha</span>
+                        <span class="length__title" data-length='16'></span>
+                    </div>
+                    <input id="slider" type="range" min="4" max="32" value="16" class="modern-slider" />
+                </div>
 
-    <script src="script.js"></script>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label class="switch">
+                            <input type="checkbox" id="uppercase" checked>
+                            <span class="slider-round"></span>
+                        </label>
+                        <span>Maiúsculas</span>
+                    </div>
+                    <div class="setting-item">
+                        <label class="switch">
+                            <input type="checkbox" id="lowercase" checked>
+                            <span class="slider-round"></span>
+                        </label>
+                        <span>Minúsculas</span>
+                    </div>
+                    <div class="setting-item">
+                        <label class="switch">
+                            <input type="checkbox" id="number" checked>
+                            <span class="slider-round"></span>
+                        </label>
+                        <span>Números</span>
+                    </div>
+                    <div class="setting-item">
+                        <label class="switch">
+                            <input type="checkbox" id="symbol">
+                            <span class="slider-round"></span>
+                        </label>
+                        <span>Símbolos</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-generate" id="generate">GERAR SENHA FORTE</button>
+        </section>
+    </main>
+
+    <script src="js/js.js"></script>
 </body>
-
 </html>
